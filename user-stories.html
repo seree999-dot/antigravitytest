@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vibecode - User Stories</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Sarabun', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex h-screen overflow-hidden">
+    <aside class="w-64 bg-slate-800 text-white flex flex-col h-full shadow-lg">
+        <div class="p-6 border-b border-slate-700">
+            <h1 class="text-2xl font-bold text-blue-400">AI Vibecode</h1>
+            <p class="text-xs text-slate-400 mt-1">Requirements Analysis</p>
+        </div>
+        <nav class="flex-1 py-4">
+            <a href="index.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">1. Overview & Scope</a>
+            <a href="requirements.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">2. System Requirements</a>
+            <a href="user-stories.html" class="block px-6 py-3 bg-blue-600 text-white font-medium">3. User Stories</a>
+            <a href="rules-risks.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">4. Rules, Risks & RTT</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-10">
+        <div class="max-w-4xl mx-auto space-y-8">
+            <header>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">3. User Stories & Acceptance Criteria</h2>
+                <p class="text-gray-600">เรื่องราวผู้ใช้งานและเกณฑ์การยอมรับการทำงานของฟีเจอร์</p>
+            </header>
+
+            <div class="space-y-6">
+                <!-- Story 1 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-blue-800">US-1: Generate Code from Prompt</span>
+                        </div>
+                        <p class="text-lg text-gray-700">
+                            <strong>ในฐานะ</strong> ผู้ใช้งานทั่วไป<br>
+                            <strong>ฉันต้องการ</strong> พิมพ์คำอธิบาย UI ที่ฉันคิดไว้ลงในช่อง Prompt<br>
+                            <strong>เพื่อให้</strong> AI เขียนโค้ด UI นั้นออกมาให้ฉันโดยอัตโนมัติ
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-700 mb-2 border-b pb-1">Acceptance Criteria (เกณฑ์การยอมรับ)</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                            <li>เมื่อพิมพ์ข้อความและกด "Generate" ระบบต้องแสดง Loading State ทันที</li>
+                            <li>ถ้าผู้ใช้กรอก Prompt ว่างเปล่า ระบบต้อง Disable ปุ่ม Generate ไว้แต่แรก</li>
+                            <li>หากระบบ API ขัดข้อง ต้องแสดงข้อความเตือนให้ลองใหม่</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Story 2 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-indigo-50 border-l-4 border-indigo-500 p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-indigo-800">US-2: Live Code Preview</span>
+                        </div>
+                        <p class="text-lg text-gray-700">
+                            <strong>ในฐานะ</strong> ผู้ใช้งานทั่วไป<br>
+                            <strong>ฉันต้องการ</strong> เห็น Preview ของโค้ดที่ AI สร้างขึ้นทันทีบนหน้าจอ<br>
+                            <strong>เพื่อให้</strong> ฉันสามารถตรวจสอบผลลัพธ์ว่าตรงกับที่ต้องการหรือไม่โดยไม่ต้องนำไปรันเอง
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-700 mb-2 border-b pb-1">Acceptance Criteria</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                            <li>ถ้า API ตอบกลับสำเร็จ โค้ดจะต้องถูกเรนเดอร์ลงในแท็บ "Preview" ทันที</li>
+                            <li>มีปุ่มสำหรับสลับดูโค้ดดิบ (Source Code) ในแท็บ "Code"</li>
+                            <li>การแสดงผล Preview ต้องอยู่ใน iframe sandbox อย่างปลอดภัย</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Story 3 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-green-50 border-l-4 border-green-500 p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-green-800">US-3: Save Snippet to Library</span>
+                        </div>
+                        <p class="text-lg text-gray-700">
+                            <strong>ในฐานะ</strong> ผู้ใช้ที่เข้าสู่ระบบแล้ว<br>
+                            <strong>ฉันต้องการ</strong> บันทึก Snippet ที่ฉันสร้างเก็บไว้<br>
+                            <strong>เพื่อให้</strong> ฉันสามารถกลับมาดู นำไปใช้งานต่อ หรือแก้ไขในอนาคตได้
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-700 mb-2 border-b pb-1">Acceptance Criteria</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                            <li>ปุ่ม "Save" จะใช้งานได้ก็ต่อเมื่อผู้ใช้ล็อกอิน (ถ้ายังไม่ล็อกอิน ให้แสดง Modal ชวนล็อกอินเมื่อกดคลิก)</li>
+                            <li>หลังจากบันทึกสำเร็จ ข้อมูลจะต้องไปปรากฏในหน้า "My Library" ของผู้ใช้ทันที</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Story 4 -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-5">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-bold text-yellow-800">US-4: Community Discovery</span>
+                        </div>
+                        <p class="text-lg text-gray-700">
+                            <strong>ในฐานะ</strong> ผู้ใช้งานทั่วไป<br>
+                            <strong>ฉันต้องการ</strong> เข้าไปดูและค้นหาผลงานในหน้า Community Feed<br>
+                            <strong>เพื่อให้</strong> ฉันได้แรงบันดาลใจและสามารถคัดลอก (Fork) โค้ดของคนอื่นมาปรับแก้ต่อได้
+                        </p>
+                    </div>
+                    <div class="p-5 bg-white">
+                        <h4 class="font-bold text-gray-700 mb-2 border-b pb-1">Acceptance Criteria</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                            <li>หน้า Feed จะต้องแสดงการ์ดผลงานเรียงตามความใหม่หรือความนิยม (Trending)</li>
+                            <li>มีช่อง Search สำหรับพิมพ์ค้นหาผลงานด้วย Keyword</li>
+                            <li>มีปุ่ม "Fork" บนผลงานคนอื่น เพื่อนำโค้ดนั้นมาเปิดใน Editor ส่วนตัวทันที</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-between pt-4 pb-10">
+                <a href="requirements.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded shadow hover:bg-gray-300 transition">⬅️ ย้อนกลับ</a>
+                <a href="rules-risks.html" class="px-6 py-2 bg-blue-600 text-white rounded shadow hover:bg-blue-700 transition">หน้าถัดไป: Rules & Risks ➔</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

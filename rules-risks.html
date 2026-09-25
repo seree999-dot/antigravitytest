@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vibecode - Rules & Risks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Sarabun', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex h-screen overflow-hidden">
+    <aside class="w-64 bg-slate-800 text-white flex flex-col h-full shadow-lg">
+        <div class="p-6 border-b border-slate-700">
+            <h1 class="text-2xl font-bold text-blue-400">AI Vibecode</h1>
+            <p class="text-xs text-slate-400 mt-1">Requirements Analysis</p>
+        </div>
+        <nav class="flex-1 py-4">
+            <a href="index.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">1. Overview & Scope</a>
+            <a href="requirements.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">2. System Requirements</a>
+            <a href="user-stories.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">3. User Stories</a>
+            <a href="rules-risks.html" class="block px-6 py-3 bg-blue-600 text-white font-medium">4. Rules, Risks & RTT</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-10">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <header>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">4. Business Rules, Risks & Traceability</h2>
+                <p class="text-gray-600">กฎทางธุรกิจ ความเสี่ยงของโปรเจกต์ และตารางสอบกลับความต้องการ</p>
+            </header>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Business Rules -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">Business Rules</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start bg-orange-50 p-3 rounded border border-orange-100">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold mr-3 mt-1">BR-1</span> 
+                            <div>
+                                <strong class="text-orange-900 block">Quota Limit (โควตาการใช้งาน)</strong>
+                                <p class="text-sm mt-1 text-gray-700">ผู้ใช้งานฟรีสามารถใช้ AI สร้างโค้ดได้สูงสุด 20 ครั้งต่อวัน เพื่อควบคุมต้นทุนค่า LLM API หากเกินกำหนดระบบจะบล็อกจนกว่าจะถึงวันใหม่</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start bg-orange-50 p-3 rounded border border-orange-100">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold mr-3 mt-1">BR-2</span> 
+                            <div>
+                                <strong class="text-orange-900 block">Content Moderation</strong>
+                                <p class="text-sm mt-1 text-gray-700">ห้ามไม่ให้มีการ Generate เนื้อหาที่ผิดกฎหมาย หรือลามกอนาจาร โดยระบบจะตรวจสอบคำหยาบก่อนส่ง Prompt ให้ AI เสมอ</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start bg-orange-50 p-3 rounded border border-orange-100">
+                            <span class="bg-orange-500 text-white px-2 py-1 rounded text-xs font-bold mr-3 mt-1">BR-3</span> 
+                            <div>
+                                <strong class="text-orange-900 block">Public by Default</strong>
+                                <p class="text-sm mt-1 text-gray-700">Snippet ที่ถูกสร้างในโหมดฟรี จะถูกตั้งค่าเป็น Public และนำไปแสดงบน Community Feed โดยอัตโนมัติ (ยกเว้นผู้ใช้เข้าไปลบทิ้งเอง)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Risks -->
+                <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">Risk Management</h3>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4 py-1">
+                            <strong class="text-gray-800 block">💸 ต้นทุน API พุ่งสูง (Cost Overrun)</strong>
+                            <div class="text-sm text-gray-600 mt-1">
+                                <span class="inline-block bg-red-100 text-red-800 px-2 rounded text-xs mr-2">Impact: สูง</span>
+                                <span class="inline-block bg-yellow-100 text-yellow-800 px-2 rounded text-xs">Prob: สูง</span>
+                            </div>
+                            <p class="text-sm text-gray-700 mt-2"><strong>Mitigation:</strong> กำหนด Rate Limit รายวันเคร่งครัด ใช้ Caching สำหรับ Prompt ที่ซ้ำกัน และเลือกใช้ Model ที่ราคาถูกสำหรับแผนฟรี</p>
+                        </div>
+                        <div class="border-l-4 border-yellow-500 pl-4 py-1 mt-4">
+                            <strong class="text-gray-800 block">🤖 Prompt Injection & Hallucination</strong>
+                            <div class="text-sm text-gray-600 mt-1">
+                                <span class="inline-block bg-red-100 text-red-800 px-2 rounded text-xs mr-2">Impact: สูง</span>
+                                <span class="inline-block bg-green-100 text-green-800 px-2 rounded text-xs">Prob: ปานกลาง</span>
+                            </div>
+                            <p class="text-sm text-gray-700 mt-2"><strong>Mitigation:</strong> วางโครงสร้าง System Prompt ให้รัดกุมที่สุด จำกัดขอบเขตให้ออกแบบเฉพาะ UI เท่านั้น หากหลุดกรอบให้ตอบปฏิเสธ</p>
+                        </div>
+                        <div class="border-l-4 border-red-600 pl-4 py-1 mt-4">
+                            <strong class="text-gray-800 block">🔓 ความปลอดภัยของ Live Preview (XSS)</strong>
+                            <div class="text-sm text-gray-600 mt-1">
+                                <span class="inline-block bg-purple-100 text-purple-800 px-2 rounded text-xs mr-2">Impact: ร้ายแรงที่สุด</span>
+                                <span class="inline-block bg-green-100 text-green-800 px-2 rounded text-xs">Prob: ต่ำ</span>
+                            </div>
+                            <p class="text-sm text-gray-700 mt-2"><strong>Mitigation:</strong> โค้ด Preview ต้องถูกจำกัดสิทธิ์ด้วย <code>&lt;iframe sandbox="allow-scripts"&gt;</code> ป้องกันไม่ให้เข้าถึง Cookie หรือ LocalStorage ของเว็บหลัก</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Traceability Table -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100 overflow-x-auto">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-5 border-b pb-2">Requirement Traceability Table (RTT)</h3>
+                <table class="min-w-full text-left text-sm whitespace-nowrap">
+                    <thead class="uppercase tracking-wider border-b-2 border-gray-200 bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-4">Req ID</th>
+                            <th scope="col" class="px-6 py-4">Description</th>
+                            <th scope="col" class="px-6 py-4">User Story</th>
+                            <th scope="col" class="px-6 py-4">Acceptance Criteria / Verification</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">FR-1</th>
+                            <td class="px-6 py-4">ระบบ Authentication</td>
+                            <td class="px-6 py-4">-</td>
+                            <td class="px-6 py-4">สมัตรสมาชิกและล็อกอินได้สำเร็จ (Email/OAuth)</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">FR-2</th>
+                            <td class="px-6 py-4">สร้างโค้ดจาก Prompt</td>
+                            <td class="px-6 py-4">US-1</td>
+                            <td class="px-6 py-4">กดปุ่ม Generate ส่ง request และรับ response ได้</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">FR-3</th>
+                            <td class="px-6 py-4">Live Preview โค้ด</td>
+                            <td class="px-6 py-4">US-2</td>
+                            <td class="px-6 py-4">โค้ดถูกเรนเดอร์ใน iframe ได้อย่างถูกต้องตามภาษา</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">FR-4</th>
+                            <td class="px-6 py-4">บันทึก Snippet</td>
+                            <td class="px-6 py-4">US-3</td>
+                            <td class="px-6 py-4">ข้อมูลลง Database ปรากฏใน My Library</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">FR-5, FR-6</th>
+                            <td class="px-6 py-4">เผยแพร่ / ค้นหาใน Feed</td>
+                            <td class="px-6 py-4">US-4</td>
+                            <td class="px-6 py-4">Snippet ปรากฏในหน้า Feed หลัก และค้นหาเจอได้</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">NFR-2</th>
+                            <td class="px-6 py-4">ป้องกัน XSS ใน Preview</td>
+                            <td class="px-6 py-4">US-2</td>
+                            <td class="px-6 py-4">ทดสอบฝัง Script อันตรายใน Prompt จะต้องไม่ทำงานในระบบหลัก</td>
+                        </tr>
+                        <tr class="hover:bg-blue-50 transition">
+                            <th scope="row" class="px-6 py-4 font-medium">BR-1</th>
+                            <td class="px-6 py-4">จำกัดโควตา 20 ครั้ง/วัน</td>
+                            <td class="px-6 py-4">US-1</td>
+                            <td class="px-6 py-4">เมื่อกดครบ 20 ครั้ง ครั้งที่ 21 จะต้องขึ้นแจ้งเตือนและบล็อก</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <div class="flex justify-start pt-4 pb-10">
+                <a href="user-stories.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded shadow hover:bg-gray-300 transition">⬅️ ย้อนกลับ</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
