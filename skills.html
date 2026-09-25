@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Vibecode - AI Skills & Setup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Sarabun', sans-serif; }</style>
+</head>
+<body class="bg-gray-50 text-gray-800 flex h-screen overflow-hidden">
+    <aside class="w-64 bg-slate-800 text-white flex flex-col h-full shadow-lg">
+        <div class="p-6 border-b border-slate-700">
+            <h1 class="text-2xl font-bold text-blue-400">AI Vibecode</h1>
+            <p class="text-xs text-slate-400 mt-1">Requirements Analysis</p>
+        </div>
+        <nav class="flex-1 py-4">
+            <a href="index.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">1. Overview & Scope</a>
+            <a href="requirements.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">2. System Requirements</a>
+            <a href="user-stories.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">3. User Stories</a>
+            <a href="rules-risks.html" class="block px-6 py-3 text-slate-300 hover:bg-slate-700 hover:text-white transition">4. Rules, Risks & RTT</a>
+            <a href="skills.html" class="block px-6 py-3 bg-blue-600 text-white font-medium">5. AI Skills & Setup</a>
+        </nav>
+    </aside>
+
+    <main class="flex-1 overflow-y-auto p-10">
+        <div class="max-w-5xl mx-auto space-y-8">
+            <header>
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">5. AI Skills & Setup</h2>
+                <p class="text-gray-600">ข้อมูลเกี่ยวกับความสามารถของ AI (Skills) การติดตั้ง และ 5 ตัวอย่างทักษะสำคัญในการเขียนโปรแกรม</p>
+            </header>
+
+            <!-- What are Skills -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4 border-b pb-2">AI Skills คืออะไร?</h3>
+                <p class="text-gray-700 mb-4 leading-relaxed">
+                    <strong>AI Skills (ทักษะของ AI)</strong> คือชุดคำสั่ง แนวทางปฏิบัติ (Instructions) และสคริปต์แบบเฉพาะเจาะจง ที่ถูกสร้างขึ้นมาเพื่อขยายความสามารถของ AI Agent 
+                    ให้สามารถทำงานที่ซับซ้อนได้อย่างเป็นระบบและมีมาตรฐานมากยิ่งขึ้น เปรียบเสมือนการ "สอน" ให้ AI รู้จักวิธีการทำงานแบบมืออาชีพในแต่ละด้าน เช่น การรีวิวโค้ด, การหาบั๊ก, หรือการวางแผนโปรเจกต์
+                </p>
+            </section>
+
+            <!-- Setup & Installation -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4 border-b pb-2">การติดตั้งและการใช้งาน (Installation & Setup)</h3>
+                <div class="bg-gray-50 p-5 rounded-lg border border-gray-200">
+                    <ol class="list-decimal pl-5 space-y-3 text-gray-700">
+                        <li><strong>โครงสร้างโฟลเดอร์:</strong> Skills มักจะถูกเก็บไว้ในโฟลเดอร์ระบบ เช่น <code>~/.gemini/config/skills/</code></li>
+                        <li><strong>ไฟล์ตั้งค่าหลัก (SKILL.md):</strong> ในแต่ละโฟลเดอร์ของ Skill จะต้องมีไฟล์ <code>SKILL.md</code> ซึ่งระบุรายละเอียด (YAML Frontmatter) เช่น ชื่อ, คำอธิบาย และขั้นตอนการทำงาน (Workflow) อย่างละเอียดให้ AI อ่าน</li>
+                        <li><strong>วิธีเรียกใช้งาน:</strong> เมื่อติดตั้งแล้ว ผู้ใช้งานสามารถสั่ง AI ด้วยภาษาธรรมชาติ เช่น <em>"ใช้ Skill การรีวิวโค้ด ตรวจสอบไฟล์นี้ให้หน่อย"</em> AI จะทำการค้นหาและนำขั้นตอนจาก <code>SKILL.md</code> มาปฏิบัติตามทันที</li>
+                    </ol>
+                </div>
+            </section>
+
+            <!-- 5 Important Skills -->
+            <section class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-6 border-b pb-2">5 ทักษะสำคัญในการเขียนโปรแกรม (Top 5 Essential Skills)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Skill 1 -->
+                    <div class="border border-blue-100 bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-3">📝</span>
+                            <h4 class="font-bold text-gray-800 text-lg">1. Requirements to Implementation Plan</h4>
+                        </div>
+                        <p class="text-sm text-gray-600"><strong>หน้าที่:</strong> แปลง Requirement หยาบๆ ให้กลายเป็นแผนการเขียนโค้ดที่ชัดเจน (Implementation Plan)</p>
+                        <p class="text-sm text-gray-600 mt-2"><strong>ประโยชน์:</strong> ช่วยลดความผิดพลาดในการสื่อสาร วางขอบเขตงานชัดเจน แยกงานเป็น Task เล็กๆ พร้อมกำหนด Acceptance Criteria ก่อนลงมือเขียนโค้ดจริง</p>
+                    </div>
+
+                    <!-- Skill 2 -->
+                    <div class="border border-green-100 bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-3">🔍</span>
+                            <h4 class="font-bold text-gray-800 text-lg">2. Code Review</h4>
+                        </div>
+                        <p class="text-sm text-gray-600"><strong>หน้าที่:</strong> รีวิวโค้ดและ Pull Requests แบบผู้เชี่ยวชาญ</p>
+                        <p class="text-sm text-gray-600 mt-2"><strong>ประโยชน์:</strong> ตรวจสอบความถูกต้อง, ความปลอดภัย (Security), ประสิทธิภาพ (Performance) และความเข้ากันได้ของโค้ด โดยเน้นการหาจุดบกพร่องที่มีผลกระทบจริง มากกว่าแค่บ่นเรื่องสไตล์การเขียน</p>
+                    </div>
+
+                    <!-- Skill 3 -->
+                    <div class="border border-red-100 bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-3">🐛</span>
+                            <h4 class="font-bold text-gray-800 text-lg">3. Systematic Debugging</h4>
+                        </div>
+                        <p class="text-sm text-gray-600"><strong>หน้าที่:</strong> แก้ไขบั๊กอย่างเป็นระบบ (Systematic)</p>
+                        <p class="text-sm text-gray-600 mt-2"><strong>ประโยชน์:</strong> เลิกการเดาแล้วแก้ (Guess-and-patch) เปลี่ยนมาใช้หลักฐาน การตั้งสมมติฐาน หาสาเหตุที่แท้จริง (Root Cause) และเขียนเทสต์ดักไว้เพื่อไม่ให้บั๊กเดิมกลับมาอีก</p>
+                    </div>
+
+                    <!-- Skill 4 -->
+                    <div class="border border-purple-100 bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-3">🧪</span>
+                            <h4 class="font-bold text-gray-800 text-lg">4. Test-Driven Development (TDD)</h4>
+                        </div>
+                        <p class="text-sm text-gray-600"><strong>หน้าที่:</strong> นำทางให้ AI เขียนโปรแกรมโดยเริ่มจากการเขียนเทสต์ก่อน (Test-First)</p>
+                        <p class="text-sm text-gray-600 mt-2"><strong>ประโยชน์:</strong> บังคับให้เกิดลูป "Red-Green-Refactor" มั่นใจได้ว่าโค้ดทุกบรรทัดทำงานได้ตามสเปคตั้งแต่เริ่มต้น และได้โค้ดที่ออกแบบมาให้ทดสอบง่าย (Testable)</p>
+                    </div>
+
+                    <!-- Skill 5 -->
+                    <div class="border border-yellow-100 bg-white p-5 rounded-lg shadow-sm hover:shadow-md transition">
+                        <div class="flex items-center mb-2">
+                            <span class="text-2xl mr-3">🗺️</span>
+                            <h4 class="font-bold text-gray-800 text-lg">5. Codebase Onboarding</h4>
+                        </div>
+                        <p class="text-sm text-gray-600"><strong>หน้าที่:</strong> ทำความเข้าใจโครงสร้างโปรเจกต์ใหม่ที่ซับซ้อนอย่างรวดเร็ว</p>
+                        <p class="text-sm text-gray-600 mt-2"><strong>ประโยชน์:</strong> ช่วยสร้าง "แผนที่" สำหรับนักพัฒนา (Developer Map) อธิบายสถาปัตยกรรม, จุดเริ่มต้นโปรแกรม (Entry Points), โฟลว์การทำงาน และจุดที่ปลอดภัยในการเข้าไปแก้ไขโค้ด</p>
+                    </div>
+
+                </div>
+            </section>
+            
+            <div class="flex justify-start pt-4 pb-10">
+                <a href="rules-risks.html" class="px-6 py-2 bg-gray-200 text-gray-700 rounded shadow hover:bg-gray-300 transition">⬅️ ย้อนกลับ</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
